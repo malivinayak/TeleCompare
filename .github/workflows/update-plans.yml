@@ -1,0 +1,127 @@
+# .github/workflows/update-plans.yml
+#
+# TeleCompare — Automated plan data update pipeline
+# ==================================================
+# Runs daily and on manual trigger.
+# Fetches telecom plan data, validates it, and commits
+# data/plans.json only if it has changed.
+#
+# Security model:
+#   - Workflow has only the minimum permissions it needs (contents: write).
+#   - API keys / secrets are NEVER put in source files. Add them as
+#     GitHub repository secrets (Settings → Secrets → Actions) and
+#     reference them in the `env:` block below.
+#   - The frontend (HTML/JS) reads only the static JSON file and never
+#     sees any secret.
+
+name: Update Plans Data
+
+on:
+  # ── Scheduled run: daily at 02:00 UTC (07:30 IST) ──────────────────────
+  schedule:
+    - cron: '0 2 * * *'
+
+  # ── Manual trigger from the GitHub Actions UI ───────────────────────────
+  workflow_dispatch:
+    inputs:
+      force_seed:
+        description: 'Force reset to seed data (ignore live sources)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+# ── Minimum required permissions ────────────────────────────────────────────
+permissions:
+  contents: write   # needed to commit and push plans.json
+
+jobs:
+  update-plans:
+    name: Fetch, validate and commit plan data
+    runs-on: ubuntu-latest
+
+    # Prevent concurrent runs from conflicting on git push
+    concurrency:
+      group: update-plans
+      cancel-in-progress: false
+
+    steps:
+      # ── 1. Check out the repository ───────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Use default GITHUB_TOKEN — no PAT needed for same-repo pushes
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── 2. Set up Python ──────────────────────────────────────────────────
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: requirements.txt
+
+      # ── 3. Install dependencies ───────────────────────────────────────────
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # ── 4. Run the update script ──────────────────────────────────────────
+      # Secrets are passed via environment variables — never hard-coded.
+      # Add your API keys in: Settings → Secrets → Actions → New repository secret
+      # Then uncomment and extend the env block below.
+      - name: Fetch and update plans data
+        env:
+          # Uncomment and add your secret when you have a live API key:
+          # RECHARGE_API_KEY: ${{ secrets.RECHARGE_API_KEY }}
+          FORCE_SEED: ${{ github.event.inputs.force_seed || 'false' }}
+        run: |
+          python scripts/update_plans.py
+        # If the script exits with a non-zero code, the step fails and the
+        # workflow stops — no bad data will be committed.
+
+      # ── 5. Validate the generated JSON ────────────────────────────────────
+      # validate_plans.py exits 1 if the JSON is structurally invalid.
+      # This prevents committing corrupt or empty data.
+      - name: Validate plans.json
+        run: |
+          python scripts/validate_plans.py
+
+      # ── 6. Check whether data/plans.json actually changed ─────────────────
+      # Only commit if there is a real diff — avoids noisy empty commits.
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --quiet data/plans.json \
+            && echo "changed=false" >> "$GITHUB_OUTPUT" \
+            || echo "changed=true"  >> "$GITHUB_OUTPUT"
+
+      # ── 7. Commit and push (only if file changed) ─────────────────────────
+      - name: Commit updated plans.json
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/plans.json
+          git commit -m "chore(data): auto-update plans.json [$(date -u +'%Y-%m-%d %H:%M UTC')]"
+
+      - name: Push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git push origin HEAD:${{ github.ref_name }}
+
+      # ── 8. Summarise result ───────────────────────────────────────────────
+      - name: Job summary
+        if: always()
+        run: |
+          if [ "${{ steps.check_changes.outputs.changed }}" = "true" ]; then
+            echo "### ✅ plans.json updated and committed" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### ℹ️ No changes to plans.json — nothing committed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Run triggered by: \`${{ github.event_name }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "Ref: \`${{ github.ref_name }}\`" >> "$GITHUB_STEP_SUMMARY"

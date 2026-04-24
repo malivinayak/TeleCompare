@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeleCompare — India Mobile Plan Finder</title>
+  <meta name="description" content="Compare Jio, Airtel, Vi and BSNL prepaid plans. Find the best recharge plan for your budget, data needs, and validity preference." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='oklch(52%25 0.22 265)'/><text y='22' x='6' font-size='20' font-family='sans-serif' fill='white'>📶</text></svg>" />
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="container nav__inner">
+    <a href="#" class="nav__brand" aria-label="TeleCompare home">
+      <span class="nav__brand-icon" aria-hidden="true">📶</span>
+      TeleCompare
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="#finder">Find Plan</a></li>
+      <li><a href="#plans">Browse</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<header class="hero section">
+  <div class="container">
+    <span class="hero__eyebrow">India's Telecom Plan Finder</span>
+    <h1 class="hero__title">Find your <em>best</em> mobile plan in 30 seconds</h1>
+    <p class="hero__sub">Compare Jio, Airtel, Vi &amp; BSNL prepaid plans. Get a personal recommendation based on your budget, data needs, and validity.</p>
+    <div class="hero__stats" id="hero-stats" aria-live="polite">
+      <div class="hero__stat"><div class="hero__stat-n" id="stat-plans">—</div><div class="hero__stat-l">Plans compared</div></div>
+      <div class="hero__stat"><div class="hero__stat-n" id="stat-ops">4</div><div class="hero__stat-l">Operators</div></div>
+      <div class="hero__stat"><div class="hero__stat-n" id="stat-updated">—</div><div class="hero__stat-l">Last updated</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ── FINDER FORM ───────────────────────────────────────── -->
+<section class="section" id="finder" aria-labelledby="finder-heading">
+  <div class="container">
+    <div class="section-heading">
+      <h2 id="finder-heading">Tell us what you need</h2>
+      <p>Answer a few quick questions and we'll recommend the best plan for you.</p>
+    </div>
+
+    <form id="finder-form" novalidate>
+      <div id="finder-panel" class="finder__grid">
+
+        <!-- Budget -->
+        <div class="form-group">
+          <label class="form-label" for="budget">Monthly budget <span>(₹)</span></label>
+          <input type="number" id="budget" name="budget" class="form-control"
+            placeholder="e.g. 300" min="50" max="10000" inputmode="numeric"
+            aria-describedby="budget-hint" />
+          <span id="budget-hint" class="sr-only">Enter your maximum recharge budget in Indian Rupees</span>
+        </div>
+
+        <!-- Validity -->
+        <div class="form-group">
+          <label class="form-label" for="validity">Preferred validity</label>
+          <select id="validity" name="validity" class="form-control">
+            <option value="">No preference</option>
+            <option value="28">~28 days (monthly)</option>
+            <option value="56">~56 days (2 months)</option>
+            <option value="84">~84 days (quarterly)</option>
+            <option value="365">~365 days (annual)</option>
+          </select>
+        </div>
+
+        <!-- Data per day -->
+        <div class="form-group">
+          <label class="form-label" for="data-need">Data per day</label>
+          <select id="data-need" name="dataNeed" class="form-control">
+            <option value="">No preference</option>
+            <option value="low">Low (up to 1 GB/day)</option>
+            <option value="medium">Medium (1–2 GB/day)</option>
+            <option value="high">High (2+ GB/day)</option>
+          </select>
+        </div>
+
+        <!-- Operators -->
+        <div class="form-group" style="grid-column: 1/-1">
+          <span class="form-label">Preferred operators <span>(select any)</span></span>
+          <div class="chip-group" role="group" aria-label="Select operators">
+            <label>
+              <input type="checkbox" name="operators" value="Jio" />
+              <span class="chip" data-op="Jio">Jio</span>
+            </label>
+            <label>
+              <input type="checkbox" name="operators" value="Airtel" />
+              <span class="chip" data-op="Airtel">Airtel</span>
+            </label>
+            <label>
+              <input type="checkbox" name="operators" value="Vi" />
+              <span class="chip" data-op="Vi">Vi</span>
+            </label>
+            <label>
+              <input type="checkbox" name="operators" value="BSNL" />
+              <span class="chip" data-op="BSNL">BSNL</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 5G -->
+        <div class="form-group">
+          <span class="form-label">Need 5G?</span>
+          <div class="chip-group" role="radiogroup" aria-label="5G preference">
+            <label><input type="radio" name="need5g" value="" checked /><span class="chip">No preference</span></label>
+            <label><input type="radio" name="need5g" value="yes" /><span class="chip">Yes</span></label>
+            <label><input type="radio" name="need5g" value="no" /><span class="chip">No</span></label>
+          </div>
+        </div>
+
+        <!-- OTT -->
+        <div class="form-group">
+          <span class="form-label">Need OTT benefits?</span>
+          <div class="chip-group" role="radiogroup" aria-label="OTT preference">
+            <label><input type="radio" name="needOtt" value="" checked /><span class="chip">No preference</span></label>
+            <label><input type="radio" name="needOtt" value="yes" /><span class="chip">Yes</span></label>
+            <label><input type="radio" name="needOtt" value="no" /><span class="chip">No</span></label>
+          </div>
+        </div>
+
+      </div><!-- /finder__grid -->
+
+      <div class="finder__actions">
+        <button type="submit" class="btn btn-primary" id="find-btn">
+          <span aria-hidden="true">✦</span> Find my plan
+        </button>
+        <button type="button" class="btn btn-ghost" id="reset-btn">Reset</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ── RECOMMENDATION ────────────────────────────────────── -->
+<section class="section" id="recommendation" aria-labelledby="rec-heading" aria-live="polite">
+  <div class="container">
+    <div class="section-heading">
+      <h2 id="rec-heading">Recommended plan</h2>
+      <p>Based on your preferences, here's what we think works best for you.</p>
+    </div>
+    <div id="rec-output">
+      <div class="rec-empty">
+        <div class="rec-empty__icon" aria-hidden="true">🎯</div>
+        <p>Fill in your needs above and hit <strong>Find my plan</strong> to get a personalised recommendation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PLANS BROWSE ──────────────────────────────────────── -->
+<section class="section" id="plans" aria-labelledby="plans-heading">
+  <div class="container">
+
+    <div class="flex-between section-heading">
+      <div>
+        <h2 id="plans-heading">Browse all plans</h2>
+        <p>Sort, filter, and compare plans side by side.</p>
+      </div>
+    </div>
+
+    <!-- Data status & disclaimer -->
+    <div class="data-status" id="data-status" aria-live="polite">
+      <span class="status-dot manual" id="status-dot"></span>
+      <span id="status-text">Loading plan data…</span>
+    </div>
+    <div class="disclaimer" role="note">
+      Plan details are for reference only. Prices and benefits may vary by telecom circle. Always verify on the operator's website before recharging.
+    </div>
+
+    <!-- Filter bar -->
+    <div class="filter-bar" role="search" aria-label="Filter and sort plans">
+
+      <div class="filter-bar__row">
+        <label for="filter-op">Operator</label>
+        <select id="filter-op" aria-label="Filter by operator">
+          <option value="">All operators</option>
+          <option value="Jio">Jio</option>
+          <option value="Airtel">Airtel</option>
+          <option value="Vi">Vi</option>
+          <option value="BSNL">BSNL</option>
+        </select>
+
+        <label for="filter-validity">Validity</label>
+        <select id="filter-validity" aria-label="Filter by validity">
+          <option value="">Any validity</option>
+          <option value="28">~28 days</option>
+          <option value="56">~56 days</option>
+          <option value="84">~84 days</option>
+          <option value="365">Annual</option>
+        </select>
+
+        <label for="filter-budget">Max price</label>
+        <select id="filter-budget" aria-label="Filter by maximum price">
+          <option value="">Any price</option>
+          <option value="200">Under ₹200</option>
+          <option value="300">Under ₹300</option>
+          <option value="500">Under ₹500</option>
+          <option value="800">Under ₹800</option>
+          <option value="1000">Under ₹1000</option>
+        </select>
+
+        <span class="plans-count" id="plans-count" aria-live="polite"></span>
+      </div>
+
+      <div class="filter-bar__row">
+        <label>Filters</label>
+        <div class="filter-chips" role="group" aria-label="Feature filters">
+          <button class="filter-chip" data-filter="has5G" aria-pressed="false">5G</button>
+          <button class="filter-chip" data-filter="hasOtt" aria-pressed="false">OTT included</button>
+          <button class="filter-chip" data-filter="unlimitedCalling" aria-pressed="false">Unlimited calls</button>
+        </div>
+      </div>
+
+      <div class="filter-bar__row">
+        <label>Sort by</label>
+        <div class="sort-options" role="group" aria-label="Sort plans by">
+          <button class="sort-btn active" data-sort="price">Price <span class="sort-arrow">↑</span></button>
+          <button class="sort-btn" data-sort="costPerDay">Cost/day</button>
+          <button class="sort-btn" data-sort="dataPerDayGB">Data/day</button>
+          <button class="sort-btn" data-sort="validityDays">Validity</button>
+          <button class="sort-btn" data-sort="costPerGB">Cost/GB</button>
+        </div>
+      </div>
+
+    </div><!-- /filter-bar -->
+
+    <!-- Cards grid -->
+    <div id="plans-grid" role="list" aria-label="Mobile plans">
+      <!-- rendered by JS -->
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ABOUT ─────────────────────────────────────────────── -->
+<section class="section" id="about" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="section-heading">
+      <h2 id="about-heading">About TeleCompare</h2>
+    </div>
+    <div class="about__grid">
+
+      <div class="about__block">
+        <h3>How the data works</h3>
+        <p>Plan data is stored as a static <code>data/plans.json</code> file, updated automatically by a GitHub Actions workflow that runs daily. The frontend reads this file directly — no backend server required.</p>
+      </div>
+
+      <div class="about__block">
+        <h3>Data update pipeline</h3>
+        <ul>
+          <li>A scheduled GitHub Actions workflow runs <code>scripts/update_plans.py</code> daily</li>
+          <li>The script fetches from available public sources and normalises the data</li>
+          <li>If a live fetch fails, the previous valid <code>plans.json</code> is preserved (fallback mode)</li>
+          <li><code>scripts/validate_plans.py</code> validates the JSON before it is committed</li>
+          <li>Changes are committed back to the repository automatically, triggering a Pages redeploy</li>
+        </ul>
+      </div>
+
+      <div class="about__block">
+        <h3>Important limitations</h3>
+        <ul>
+          <li>Plan availability and pricing vary by telecom circle (state)</li>
+          <li>Operator websites may change structure, which can affect automated scraping</li>
+          <li>Always verify the final price and benefits on the operator's official website before recharging</li>
+          <li>OTT benefits are subject to change by operators at any time</li>
+        </ul>
+      </div>
+
+      <div class="about__block">
+        <h3>Operator links</h3>
+        <ul>
+          <li><a href="https://www.jio.com/recharge" target="_blank" rel="noopener">Jio official recharge</a></li>
+          <li><a href="https://www.airtel.in/recharge-online" target="_blank" rel="noopener">Airtel official recharge</a></li>
+          <li><a href="https://www.myvi.in/prepaid/recharge-plans" target="_blank" rel="noopener">Vi official recharge</a></li>
+          <li><a href="https://selfcare.bsnl.co.in" target="_blank" rel="noopener">BSNL self-care portal</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer role="contentinfo">
+  <div class="container">
+    <p>TeleCompare &mdash; an open-source project. Not affiliated with any telecom operator.<br />
+    Data is periodically updated and provided for reference only. <a href="#about">Learn more</a>.</p>
+  </div>
+</footer>
+
+<!-- ── COMPARISON BAR (sticky bottom) ────────────────────── -->
+<div class="compare-bar" id="compare-bar" role="region" aria-label="Plan comparison" aria-live="polite">
+  <div class="compare-bar__plans" id="compare-chips"></div>
+  <span class="compare-bar__hint" id="compare-hint"></span>
+  <button class="btn btn-primary btn-sm" id="compare-btn" disabled>Compare</button>
+  <button class="btn btn-ghost btn-sm" id="clear-compare-btn">Clear</button>
+</div>
+
+<!-- ── COMPARISON MODAL ───────────────────────────────────── -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <div class="modal__handle" aria-hidden="true"></div>
+    <div class="modal__header">
+      <h2 id="modal-title">Side-by-side comparison</h2>
+      <button class="modal__close" id="modal-close" aria-label="Close comparison">&times;</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

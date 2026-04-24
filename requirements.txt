@@ -1,0 +1,9 @@
+# Python dependencies for TeleCompare data update pipeline
+# Keep this minimal — avoid heavy browser automation.
+
+# HTTP requests (used in update_plans.py for live API fetching)
+requests==2.32.3
+
+# HTML parsing — only needed if you add scraping; safe to keep for future use
+beautifulsoup4==4.12.3
+lxml==5.2.2
