@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-04-24T10:00:00+05:30",
-  "dataStatus": "manual",
-  "sourceNote": "Seed data manually compiled from public operator websites. Verify before recharging.",
+  "lastUpdated": "2026-04-24T11:54:25+05:30",
+  "dataStatus": "fallback",
+  "sourceNote": "Plans are periodically updated from public/operator/TRAI/API sources. Verify before recharge.",
   "sources": [
     {
-      "name": "Manual seed data",
-      "url": "https://github.com",
-      "fetchedAt": "2026-04-24T10:00:00+05:30",
-      "status": "success"
+      "name": "Seed / manual data",
+      "url": "",
+      "fetchedAt": "2026-04-24T11:54:25+05:30",
+      "status": "fallback"
     }
   ],
   "plans": [
@@ -24,7 +24,10 @@
       "has5G": false,
       "ottBenefits": [],
       "planType": "Prepaid",
-      "tags": ["Budget", "Popular"],
+      "tags": [
+        "Budget",
+        "Popular"
+      ],
       "sourceUrl": "https://www.jio.com/recharge",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -40,9 +43,15 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": true,
-      "ottBenefits": ["JioCinema", "JioTV"],
+      "ottBenefits": [
+        "JioCinema",
+        "JioTV"
+      ],
       "planType": "Prepaid",
-      "tags": ["5G", "Popular"],
+      "tags": [
+        "5G",
+        "Popular"
+      ],
       "sourceUrl": "https://www.jio.com/recharge",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -58,9 +67,17 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": true,
-      "ottBenefits": ["JioCinema Premium", "JioTV", "Sony LIV"],
+      "ottBenefits": [
+        "JioCinema Premium",
+        "JioTV",
+        "Sony LIV"
+      ],
       "planType": "Prepaid",
-      "tags": ["5G", "OTT", "High Data"],
+      "tags": [
+        "5G",
+        "OTT",
+        "High Data"
+      ],
       "sourceUrl": "https://www.jio.com/recharge",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -76,9 +93,14 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": false,
-      "ottBenefits": ["JioCinema", "JioTV"],
+      "ottBenefits": [
+        "JioCinema",
+        "JioTV"
+      ],
       "planType": "Prepaid",
-      "tags": ["Long Validity"],
+      "tags": [
+        "Long Validity"
+      ],
       "sourceUrl": "https://www.jio.com/recharge",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -94,9 +116,16 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": true,
-      "ottBenefits": ["JioCinema", "JioTV"],
+      "ottBenefits": [
+        "JioCinema",
+        "JioTV"
+      ],
       "planType": "Prepaid",
-      "tags": ["5G", "Long Validity", "Popular"],
+      "tags": [
+        "5G",
+        "Long Validity",
+        "Popular"
+      ],
       "sourceUrl": "https://www.jio.com/recharge",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -112,9 +141,18 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": true,
-      "ottBenefits": ["JioCinema Premium", "JioTV", "Sony LIV"],
+      "ottBenefits": [
+        "JioCinema Premium",
+        "JioTV",
+        "Sony LIV"
+      ],
       "planType": "Prepaid",
-      "tags": ["5G", "OTT", "Long Validity", "High Data"],
+      "tags": [
+        "5G",
+        "OTT",
+        "Long Validity",
+        "High Data"
+      ],
       "sourceUrl": "https://www.jio.com/recharge",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -130,9 +168,16 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": true,
-      "ottBenefits": ["JioCinema Premium", "JioTV"],
+      "ottBenefits": [
+        "JioCinema Premium",
+        "JioTV"
+      ],
       "planType": "Prepaid",
-      "tags": ["5G", "Annual", "Long Validity"],
+      "tags": [
+        "5G",
+        "Annual",
+        "Long Validity"
+      ],
       "sourceUrl": "https://www.jio.com/recharge",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -150,7 +195,9 @@
       "has5G": false,
       "ottBenefits": [],
       "planType": "Prepaid",
-      "tags": ["Budget"],
+      "tags": [
+        "Budget"
+      ],
       "sourceUrl": "https://www.airtel.in/recharge-online",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -166,9 +213,14 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": true,
-      "ottBenefits": ["Airtel Xstream"],
+      "ottBenefits": [
+        "Airtel Xstream"
+      ],
       "planType": "Prepaid",
-      "tags": ["5G", "Popular"],
+      "tags": [
+        "5G",
+        "Popular"
+      ],
       "sourceUrl": "https://www.airtel.in/recharge-online",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -184,9 +236,16 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": true,
-      "ottBenefits": ["Airtel Xstream", "Disney+ Hotstar"],
+      "ottBenefits": [
+        "Airtel Xstream",
+        "Disney+ Hotstar"
+      ],
       "planType": "Prepaid",
-      "tags": ["5G", "OTT", "Popular"],
+      "tags": [
+        "5G",
+        "OTT",
+        "Popular"
+      ],
       "sourceUrl": "https://www.airtel.in/recharge-online",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -202,9 +261,14 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": true,
-      "ottBenefits": ["Airtel Xstream"],
+      "ottBenefits": [
+        "Airtel Xstream"
+      ],
       "planType": "Prepaid",
-      "tags": ["5G", "Long Validity"],
+      "tags": [
+        "5G",
+        "Long Validity"
+      ],
       "sourceUrl": "https://www.airtel.in/recharge-online",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -220,9 +284,15 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": true,
-      "ottBenefits": ["Airtel Xstream"],
+      "ottBenefits": [
+        "Airtel Xstream"
+      ],
       "planType": "Prepaid",
-      "tags": ["5G", "Long Validity", "Popular"],
+      "tags": [
+        "5G",
+        "Long Validity",
+        "Popular"
+      ],
       "sourceUrl": "https://www.airtel.in/recharge-online",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -238,9 +308,16 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": true,
-      "ottBenefits": ["Airtel Xstream", "Disney+ Hotstar"],
+      "ottBenefits": [
+        "Airtel Xstream",
+        "Disney+ Hotstar"
+      ],
       "planType": "Prepaid",
-      "tags": ["5G", "OTT", "Long Validity"],
+      "tags": [
+        "5G",
+        "OTT",
+        "Long Validity"
+      ],
       "sourceUrl": "https://www.airtel.in/recharge-online",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -256,9 +333,17 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": true,
-      "ottBenefits": ["Airtel Xstream", "Disney+ Hotstar"],
+      "ottBenefits": [
+        "Airtel Xstream",
+        "Disney+ Hotstar"
+      ],
       "planType": "Prepaid",
-      "tags": ["5G", "Annual", "OTT", "Long Validity"],
+      "tags": [
+        "5G",
+        "Annual",
+        "OTT",
+        "Long Validity"
+      ],
       "sourceUrl": "https://www.airtel.in/recharge-online",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -276,7 +361,9 @@
       "has5G": false,
       "ottBenefits": [],
       "planType": "Prepaid",
-      "tags": ["Budget"],
+      "tags": [
+        "Budget"
+      ],
       "sourceUrl": "https://www.myvi.in/prepaid/recharge-plans",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -292,9 +379,14 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": false,
-      "ottBenefits": ["Vi Movies & TV"],
+      "ottBenefits": [
+        "Vi Movies & TV"
+      ],
       "planType": "Prepaid",
-      "tags": ["Popular", "OTT"],
+      "tags": [
+        "Popular",
+        "OTT"
+      ],
       "sourceUrl": "https://www.myvi.in/prepaid/recharge-plans",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -310,9 +402,13 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": false,
-      "ottBenefits": ["Vi Movies & TV"],
+      "ottBenefits": [
+        "Vi Movies & TV"
+      ],
       "planType": "Prepaid",
-      "tags": ["Long Validity"],
+      "tags": [
+        "Long Validity"
+      ],
       "sourceUrl": "https://www.myvi.in/prepaid/recharge-plans",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -328,9 +424,13 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": false,
-      "ottBenefits": ["Vi Movies & TV"],
+      "ottBenefits": [
+        "Vi Movies & TV"
+      ],
       "planType": "Prepaid",
-      "tags": ["Long Validity"],
+      "tags": [
+        "Long Validity"
+      ],
       "sourceUrl": "https://www.myvi.in/prepaid/recharge-plans",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -346,9 +446,14 @@
       "unlimitedCalling": true,
       "smsPerDay": 100,
       "has5G": false,
-      "ottBenefits": ["Vi Movies & TV"],
+      "ottBenefits": [
+        "Vi Movies & TV"
+      ],
       "planType": "Prepaid",
-      "tags": ["Annual", "Long Validity"],
+      "tags": [
+        "Annual",
+        "Long Validity"
+      ],
       "sourceUrl": "https://www.myvi.in/prepaid/recharge-plans",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -366,7 +471,10 @@
       "has5G": false,
       "ottBenefits": [],
       "planType": "Prepaid",
-      "tags": ["Budget", "Cheapest"],
+      "tags": [
+        "Budget",
+        "Cheapest"
+      ],
       "sourceUrl": "https://www.bsnl.co.in/opencms/BSNL/BSNL/home/index.html",
       "lastSeen": "2026-04-24",
       "notes": "Calling restricted to BSNL-to-BSNL free; others at local rates on some plans — verify."
@@ -384,7 +492,10 @@
       "has5G": false,
       "ottBenefits": [],
       "planType": "Prepaid",
-      "tags": ["Budget", "High Data"],
+      "tags": [
+        "Budget",
+        "High Data"
+      ],
       "sourceUrl": "https://www.bsnl.co.in/opencms/BSNL/BSNL/home/index.html",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -402,7 +513,10 @@
       "has5G": false,
       "ottBenefits": [],
       "planType": "Prepaid",
-      "tags": ["Budget", "Long Validity"],
+      "tags": [
+        "Budget",
+        "Long Validity"
+      ],
       "sourceUrl": "https://www.bsnl.co.in/opencms/BSNL/BSNL/home/index.html",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -420,7 +534,10 @@
       "has5G": false,
       "ottBenefits": [],
       "planType": "Prepaid",
-      "tags": ["Budget", "Long Validity"],
+      "tags": [
+        "Budget",
+        "Long Validity"
+      ],
       "sourceUrl": "https://www.bsnl.co.in/opencms/BSNL/BSNL/home/index.html",
       "lastSeen": "2026-04-24",
       "notes": ""
@@ -438,7 +555,11 @@
       "has5G": false,
       "ottBenefits": [],
       "planType": "Prepaid",
-      "tags": ["Annual", "Budget", "Long Validity"],
+      "tags": [
+        "Annual",
+        "Budget",
+        "Long Validity"
+      ],
       "sourceUrl": "https://www.bsnl.co.in/opencms/BSNL/BSNL/home/index.html",
       "lastSeen": "2026-04-24",
       "notes": ""
