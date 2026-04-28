@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-04-27T10:27:54+05:30",
+  "lastUpdated": "2026-04-28T10:50:11+05:30",
   "dataStatus": "fallback",
   "sourceNote": "Plans are periodically updated from public/operator/TRAI/API sources. Verify before recharge.",
   "sources": [
     {
       "name": "Seed / manual data",
       "url": "",
-      "fetchedAt": "2026-04-27T10:27:54+05:30",
+      "fetchedAt": "2026-04-28T10:50:11+05:30",
       "status": "fallback"
     }
   ],
